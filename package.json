@@ -4,7 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "npm run jest",
+    "jest": "jest",
+    "test:watch": "npm run jest -- --watch",
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server --hot --open --mode development"
   },
   "repository": {
     "type": "git",
@@ -14,6 +20,12 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/rbtprograms/meme-generator/issues"
+  },
+  "devDependencies": {
+    "webpack": "^4.16.5",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.5",
+    "eslint": "^5.3.0"
   },
   "homepage": "https://github.com/rbtprograms/meme-generator#readme"
 }
