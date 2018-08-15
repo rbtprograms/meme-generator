@@ -1,6 +1,6 @@
 #container {
-  width: 512px;
-  height: 308px;
+  margin:50px;
+  height: 500px;
   display: flex;
   align-items: center;
   flex-direction: column;

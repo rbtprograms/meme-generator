@@ -7,6 +7,7 @@ class App extends Component {
     topContent: 'Type your dank meme text',
     bottomContent: 'More dank meme text',
     url: 'https://s3.amazonaws.com/colorslive/jpg_512x512/3534519-BTjpDbK2uPA0vAO2.jpg'
+    // url: 'https://usatftw.files.wordpress.com/2017/05/spongebob.jpg?w=1000&h=600&crop=1'
   };
 
   handlePictureChoose = (url = '') => {
@@ -44,7 +45,7 @@ class App extends Component {
 function Meme({ url, topContent, bottomContent }) {
   return (
     <Fragment>
-      <div  id='container' style={{ background: `url(${url})` }}>
+      <div  id='container' style={{ background: `url(${url}) no-repeat center/ auto 500px` }}>
         <p id='toptext'>{topContent}</p>
         <p id='bottomtext'>{bottomContent}</p>
       </div>
