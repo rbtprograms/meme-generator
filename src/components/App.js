@@ -12,6 +12,10 @@ class App extends Component {
     this.setState({ url });
   };
 
+  handleTopContentChange = (topContent = '') => {
+    this.setState({ topContent });
+  }
+
   render() {
     const { url, topContent } = this.state;
 
@@ -20,7 +24,7 @@ class App extends Component {
         <h1>Let's make some memes!</h1>
         <section>
           <p id='how'>Upload an image, input your top and bottom text, and save! It's that easy!</p>
-          <Content content={topContent}/>
+          <Content content={topContent} onChange={this.handleTopContentChange}/>
           <Picture url={url} onChoose={this.handlePictureChoose}/>
         </section>
         <section>
@@ -48,13 +52,14 @@ function Picture({ url, onChoose }) {
   );
 }
 
-function Content({ content }) {
+function Content({ content, onChange }) {
   return (
     <p>
       <label>
         Top Text Here:
         <input
           value={content}
+          onChange={({ target }) => onChange(target.value)}
         />
       </label>
     </p>
