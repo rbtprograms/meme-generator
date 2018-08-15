@@ -1,5 +1,11 @@
-main {
+:local(.app) {
 
-  color: red;
+  h1 {
+    color: red;
+  }
+
+  p {
+    color: blue;
+  }
 
 }
