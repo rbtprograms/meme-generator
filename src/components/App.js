@@ -35,9 +35,9 @@ class App extends Component {
 
     return (
       <main className={styles.app}>
-        <h1>Let's make some memes!</h1>
+        <h1>Lets make some memes!</h1>
         <section>
-          <p id='how'>Upload an image, input your top and bottom text, and save! It's that easy!</p>
+          <p id='how'>Upload an image, input your top and bottom text, and save! Its that easy!</p>
           <Content label='Top' content={topContent} onChange={this.handleTopContentChange}/>
           <Content label='Bottom' content={bottomContent} onChange={this.handleBottomContentChange}/>
           <Picture url={url} onChoose={this.handlePictureChoose}/>
