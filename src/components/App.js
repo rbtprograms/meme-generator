@@ -53,12 +53,10 @@ class App extends Component {
 
 function Meme({ url, topContent, bottomContent }) {
   return (
-    <Fragment>
-      <div id='container' style={{ background: `url(${url}) no-repeat center/ auto 500px` }}>
-        <p id='toptext'>{topContent}</p>
-        <p id='bottomtext'>{bottomContent}</p>
-      </div>
-    </Fragment>
+    <div id='container' style={{ background: `url(${url}) no-repeat center/ auto 500px` }}>
+      <p id='toptext'>{topContent}</p>
+      <p id='bottomtext'>{bottomContent}</p>
+    </div>
   );
 }
 
