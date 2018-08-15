@@ -15,10 +15,11 @@ class App extends Component {
 
   handleTopContentChange = (topContent = '') => {
     this.setState({ topContent });
-  }
+  };
+
   handleBottomContentChange = (bottomContent = '') => {
     this.setState({ bottomContent });
-  }
+  };
 
   render() {
     const { url, topContent, bottomContent } = this.state;
@@ -43,7 +44,7 @@ class App extends Component {
 function Meme({ url, topContent, bottomContent }) {
   return (
     <Fragment>
-      <div style={{ background: `url(${url})` }}>
+      <div  id='container' style={{ background: `url(${url})` }}>
         <p id='toptext'>{topContent}</p>
         <p id='bottomtext'>{bottomContent}</p>
       </div>
