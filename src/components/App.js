@@ -5,7 +5,8 @@ class App extends Component {
 
   state = { 
     topContent: 'Type your dank meme text',
-    url: 'http://i.imgflip.com/18visq.jpg'
+    bottomContent: 'More dank meme text',
+    url: 'https://s3.amazonaws.com/colorslive/jpg_512x512/3534519-BTjpDbK2uPA0vAO2.jpg'
   };
 
   handlePictureChoose = (url = '') => {
@@ -15,30 +16,37 @@ class App extends Component {
   handleTopContentChange = (topContent = '') => {
     this.setState({ topContent });
   }
+  handleBottomContentChange = (bottomContent = '') => {
+    this.setState({ bottomContent });
+  }
 
   render() {
-    const { url, topContent } = this.state;
+    const { url, topContent, bottomContent } = this.state;
 
     return (
       <main className={styles.app}>
         <h1>Let's make some memes!</h1>
         <section>
           <p id='how'>Upload an image, input your top and bottom text, and save! It's that easy!</p>
-          <Content content={topContent} onChange={this.handleTopContentChange}/>
+          <Content label='Top' content={topContent} onChange={this.handleTopContentChange}/>
+          <Content label='Bottom' content={bottomContent} onChange={this.handleBottomContentChange}/>
           <Picture url={url} onChoose={this.handlePictureChoose}/>
         </section>
         <section>
-          <Meme url={url} topContent={topContent}/>
+          <Meme url={url} topContent={topContent} bottomContent={bottomContent}/>
         </section>
       </main>
     );
   }
 }
 
-function Meme({ url, topContent }) {
+function Meme({ url, topContent, bottomContent }) {
   return (
     <Fragment>
-      <pre style={{ background: `url(${url})` }}>{topContent}</pre>
+      <div style={{ background: `url(${url})` }}>
+        <p id='toptext'>{topContent}</p>
+        <p id='bottomtext'>{bottomContent}</p>
+      </div>
     </Fragment>
   );
 }
@@ -52,11 +60,11 @@ function Picture({ url, onChoose }) {
   );
 }
 
-function Content({ content, onChange }) {
+function Content({ content, onChange, label }) {
   return (
     <p>
       <label>
-        Top Text Here:
+        {label} Text Here:
         <input
           value={content}
           onChange={({ target }) => onChange(target.value)}
