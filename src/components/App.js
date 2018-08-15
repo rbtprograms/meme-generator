@@ -58,6 +58,11 @@ function Picture({ url, onChoose }) {
     <label>
       Picture:
       <input value={url} onChange={({ target }) => onChoose(target.value)}/>
+      <input type='file' onChange={({ target }) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(target.files[0]);
+        reader.onload = () => onChoose(reader.result);
+      }}/>
     </label>
   );
 }
