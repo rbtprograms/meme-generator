@@ -17,9 +17,20 @@ class App extends Component {
           <p id='how'>Upload an image, input your top and bottom text, and save! It's that easy!</p>
           <Picture url={url}/>
         </section>
+        <section>
+          <Meme url={url}/>
+        </section>
       </main>
     );
   }
+}
+
+function Meme({ url }) {
+  return (
+    <Fragment>
+      <pre style={{ background: `url(${url})` }}/>
+    </Fragment>
+  );
 }
 
 function Picture({ url }) {
@@ -28,7 +39,7 @@ function Picture({ url }) {
       Picture:
       <input value={url}/>
     </label>
-  )
+  );
 }
 
 export default App;
